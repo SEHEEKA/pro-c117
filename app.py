@@ -10,16 +10,21 @@ def index():
 def predict_emotion():
     
     # Get Input Text from POST Request
+    input_text = request.json.get("text")  
     
-    
-    
+    if not input_text:
         # Response to send if the input_text is undefined
-        
-        
-        # Response to send if the input_text is not undefined
+        response = {
+                    "status": "error",
+                    "message": "Please enter some text to predict emotion!"
+                  }
+        return jsonify(response)
+    else:  
         
 
         # Send Response         
+        return jsonify(response)
+              
         
        
 app.run(debug=True)
